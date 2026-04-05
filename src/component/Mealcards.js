@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -48,3 +49,29 @@ const Mealcards = ({ detail }) => {
 };
 
 export default Mealcards;
+=======
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+
+const Mealcards = ({detail}) => {
+    console.log(detail)
+  return (
+    <>
+     <div className='meals'>{!detail?"":detail.map((currItem)=>{
+        return(
+            <div className='mealImg'>
+            <img src={currItem.strMealThumb}/>
+            <p>{currItem.strMeal}</p>
+            <NavLink to={`/${currItem.idMeal}`}><button >Recipe</button></NavLink>
+            
+        </div>
+        )
+     })
+       
+        }</div> 
+    </>
+  )
+}
+
+export default Mealcards
+>>>>>>> 3081a2c9f3b00b196233c1be1a6d7d7ea03d3b8c
