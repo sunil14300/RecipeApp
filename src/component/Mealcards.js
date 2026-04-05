@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Mealcards = ({ detail }) => {
-  // 1. Unified 'No Results' state with a professional message
   if (!detail || detail.length === 0) {
     return (
       <div className="no-results" style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem 2rem' }}>
@@ -23,7 +21,6 @@ const Mealcards = ({ detail }) => {
           className='mealImg' 
           style={{ animationDelay: `${index * 0.1}s` }}
         >
-          {/* 2. Image container with professional overlay effect */}
           <div className="meal-image-container">
             <img 
               src={currItem.strMealThumb || 'https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=🍲'} 
@@ -35,7 +32,6 @@ const Mealcards = ({ detail }) => {
             </div>
           </div>
 
-          {/* 3. Content section with clean typography and action button */}
           <div className="meal-content">
             <h3>{currItem.strMeal || 'Delicious Dish'}</h3>
             <NavLink to={`/${currItem.idMeal}`} className="recipe-btn">
@@ -49,29 +45,3 @@ const Mealcards = ({ detail }) => {
 };
 
 export default Mealcards;
-=======
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-
-const Mealcards = ({detail}) => {
-    console.log(detail)
-  return (
-    <>
-     <div className='meals'>{!detail?"":detail.map((currItem)=>{
-        return(
-            <div className='mealImg'>
-            <img src={currItem.strMealThumb}/>
-            <p>{currItem.strMeal}</p>
-            <NavLink to={`/${currItem.idMeal}`}><button >Recipe</button></NavLink>
-            
-        </div>
-        )
-     })
-       
-        }</div> 
-    </>
-  )
-}
-
-export default Mealcards
->>>>>>> 3081a2c9f3b00b196233c1be1a6d7d7ea03d3b8c

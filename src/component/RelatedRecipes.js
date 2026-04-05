@@ -7,19 +7,16 @@ const RelatedRecipes = ({ currentMealId, currentCategory, currentArea }) => {
   useEffect(() => {
     const fetchRelated = async () => {
       try {
-        // Fetch 8 random meals from same category/area or general
         const categoryUrl = currentCategory ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${currentCategory}` : null;
         const areaUrl = currentArea ? `https://www.themealdb.com/api/json/v1/1/filter.php?a=${currentArea}` : null;
         const randomUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
         
-        // Use category first, then area, then random
         let url = categoryUrl || areaUrl || randomUrl;
         const response = await fetch(url);
         const data = await response.json();
         
         let meals = data.meals || [data.meals[0]];
         
-        // Filter out current meal and limit to 6
         meals = meals.filter(meal => meal.idMeal !== currentMealId).slice(0, 6);
         
         setRelated(meals);
@@ -37,8 +34,6 @@ const RelatedRecipes = ({ currentMealId, currentCategory, currentArea }) => {
   }, [currentMealId, currentCategory, currentArea]);
 
   if (loading) return null;
-
-  // src/component/RelatedRecipes.js
 
 return (
     <section className="related-section">
