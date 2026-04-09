@@ -55,7 +55,7 @@ const MainPage = () => {
 
     return (
         <div className='container'>
-            <h1 className='head'>🍽️ Food Recipe Explorer</h1>
+            <h1 className='head'>🍽️ Food </h1>
             
             <div className='searchBar'> 
                 <div className="search-group">
